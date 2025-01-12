@@ -11,7 +11,7 @@
 ### 标定方法 ###
 
 1. 下载项目到本地，并安装相关依赖库；
-2. 运行data_collect_ur5.py，开始采集数据；需要自行移动机械臂并在键盘上按q进行拍照与获取当前机械臂位姿于collect_data文件夹中。
+2. 运行data_collect_ur5.py，开始采集数据（s保存数据，q退出）；需要自行移动机械臂并在键盘上按q进行拍照与获取当前机械臂位姿于collect_data文件夹中。
 3. 运行eyeToHand_all.py，自动算出所有的参数，会存放于measured_data文件夹中。
     ps：如果eyeToHand_all.py运行报错（请告诉我报错什么信息），请运行eyeToHand.py初步获得内参矩阵、畸变系数、旋转矩阵、平移矩阵（旋转矩阵与平移矩阵结合成其次变换矩阵即为cam2base的坐标变换矩阵）。再单独运行record_realsense.py获取相机深度信息。
 
