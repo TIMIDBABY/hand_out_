@@ -35,18 +35,6 @@ class UR_Robot:
         # 阻塞调用的工具姿态容差
         self.tool_pose_tolerance = [0.002, 0.002, 0.002, 0.01, 0.01, 0.01]
 
-        # Realsense 相机配置
-        # if self.is_use_camera:
-        #     # 从 RealSense 相机获取 RGB-D 数据
-        #     self.camera = Camera()
-        #     # self.cam_intrinsics = self.camera.intrinsics  # 获取相机内参
-        # self.cam_intrinsics = np.loadtxt('./measured_data/mtx.txt')
-        # # self.cam_intrinsics = np.array([615.284,0,309.623,0,614.557,247.967,0,0,1]).reshape(3,3)
-        # # 加载相机姿态（通过运行 calibrate.py），内参和深度比例
-        # self.cam_pose = np.loadtxt('./measured_data/camera_pose.txt', delimiter=' ')
-        # self.cam_depth_scale = np.loadtxt('./measured_data/camera_depth_scale.txt', delimiter=' ')
-   
-
         # 默认机器人回到初始关节配置（机器人悬空状态）
         self.home_joint_config = [-(0 / 360.0) * 2 * np.pi, -(90 / 360.0) * 2 * np.pi,
                              (-90 / 360.0) * 2 * np.pi, -(90 / 360.0) * 2 * np.pi,
@@ -158,19 +146,6 @@ class UR_Robot:
     
     def go_home(self):
         self.move_j(self.home_joint_config)
-
-    def restartReal(self):
-        self.go_home()
-        # Realsense 相机配置
-        if self.is_use_camera:
-            # 从 RealSense 相机获取 RGB-D 数据
-            self.camera = Camera()
-            # self.cam_intrinsics = self.camera.intrinsics  # 获取相机内参
-            # self.cam_intrinsics=np.loadtxt('./measured_data/mtx.txt')
-            self.cam_intrinsics = self.camera.color_intr
-            # 加载相机姿态（通过运行 eyeToHand程序），内参和深度比例
-            self.cam_pose = np.loadtxt('./measured_data/camera_pose.txt', delimiter=' ')
-            self.cam_depth_scale = np.loadtxt('./measured_data/camera_depth_scale.txt', delimiter=' ')
 
     # 获取机器人当前状态和信息
     def get_state(self):
