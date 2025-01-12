@@ -4,7 +4,7 @@ import cv2
 import os
 import numpy as np
 from realsenseD435 import RealsenseD435
-from UR_Robot_nogripper import UR_Robot
+from Acc_test.UR_Robot import UR_Robot
 import time
 
 class CameraControl:

@@ -168,7 +168,7 @@ class UR_Robot:
             # self.cam_intrinsics = self.camera.intrinsics  # 获取相机内参
             # self.cam_intrinsics=np.loadtxt('./measured_data/mtx.txt')
             self.cam_intrinsics = self.camera.color_intr
-            # 加载相机姿态（通过运行 calibrate.py），内参和深度比例
+            # 加载相机姿态（通过运行 eyeToHand程序），内参和深度比例
             self.cam_pose = np.loadtxt('./measured_data/camera_pose.txt', delimiter=' ')
             self.cam_depth_scale = np.loadtxt('./measured_data/camera_depth_scale.txt', delimiter=' ')
 
