@@ -206,7 +206,7 @@ def save_matrices_to_txt(matrices_dict, filename="all"):
             f.write(f"=== {name} ===\n")
             
             # 处理一维数组
-            if matrix.ndim == 1:
+            if matrix.ndim == 0:
                 matrix = matrix.reshape(1, -1)
             
             rows, cols = matrix.shape
